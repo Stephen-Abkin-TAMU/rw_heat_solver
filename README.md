@@ -1,28 +1,5 @@
-# RW Heat Solver
+## RW Heat Equation Solver
 
-**RW Heat Solver** (Random–Walk Heat Solver) is a simple Python re-implementation of the 1-D **heat diffusion equation** using a *Monte Carlo random-walk* method.  
-It simulates how heat spreads over time by moving many small “globs” of heat in random directions, then reconstructing the resulting temperature field.
+This project demonstrates how heat naturally spreads over time using a random–walk model of diffusion. The simulation starts with a set of temperature “globs” placed along a one–dimensional line, each representing a small amount of heat. At every time step, these globs move randomly left or right, mimicking the random motion of particles in a material. As they move and mix, sharp temperature differences gradually smooth out, forming the same patterns predicted by the heat equation.  
 
----
-
-## Overview
-
-The **heat equation** models how temperature changes in space and time:
-\[
-\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
-\]
-where:
-- \(u(x,t)\) is the temperature,  
-- \(\alpha\) is the diffusion coefficient (how quickly heat spreads).
-
-Instead of solving this with calculus, this program uses a **stochastic approach**:
-1. Represent the initial temperature as many discrete particles (“globs”).
-2. Each glob moves a small random distance at every time step.
-3. The new positions are collected into bins to rebuild the temperature field.
-4. Repeating this process gradually smooths out sharp gradients — just like real diffusion.
-
-This random-walk approach provides an intuitive and visual way to understand diffusion, showing how random motion can lead to the same smooth results predicted by the analytical PDE solution.
-
----
-
-
+Through this process, this project shows that diffusion can be understood as the collective result of many tiny random motions. By adjusting the initial temperature distribution and boundary conditions, you can see how heat behaves in different scenarios—such as isolated hot spots spreading symmetrically, walls absorbing or reflecting heat, or noisy profiles becoming smooth over time. The result is an intuitive, visual understanding of how randomness on the microscopic scale produces smooth, predictable behavior on the macroscopic scale.
