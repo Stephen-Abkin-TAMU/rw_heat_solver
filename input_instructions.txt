@@ -1,0 +1,89 @@
+┌────────────────────────────────────────────────────────────────────────────┐
+│                          RANDOM WALK PDE INPUT FILE                        │
+│                      (used by Get_input.py → rw_main.py)                   │
+|									     |
+|     DO NOT INCLUDE any comments or extra text outside of what is shown!    |
+│     Each line corresponds to what the program expects to read in order.    │
+├────────────────────────────────────────────────────────────────────────────┤
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ Question being asked internally by code:                   │
+  │ "Define LEFT boundary (exists?, position, symmetric?)"     │
+  ├────────────────────────────────────────────────────────────┤
+  │ Input line (you type in file):                             │
+  │   1, 0.0, 1                                                │
+  ├────────────────────────────────────────────────────────────┤
+  │ Meaning:                                                   │
+  │   1 → left boundary exists                                 │
+  │   0.0 → boundary at x = 0.0                                │
+  │   1 → symmetric (reflective) boundary                      │
+  └────────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ Question: "Define RIGHT boundary (exists?, position, sym?)"│
+  ├────────────────────────────────────────────────────────────┤
+  │ Input:  1, 1.0, 1                                          │
+  ├────────────────────────────────────────────────────────────┤
+  │ Meaning: right wall exists at x = 1.0 and is symmetric     │
+  └────────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ Question: "Enter diffusivity constant (α)"                 │
+  ├────────────────────────────────────────────────────────────┤
+  │ Input:  0.01                                               │
+  ├────────────────────────────────────────────────────────────┤
+  │ Meaning: how fast globs spread (higher = faster diffusion) │
+  └────────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ Question: "Enter time step Δt"                             │
+  ├────────────────────────────────────────────────────────────┤
+  │ Input:  0.001                                              │
+  ├────────────────────────────────────────────────────────────┤
+  │ Meaning: simulation advances by this amount each iteration │
+  └────────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ Question: "Include reaction term?"                         │
+  ├────────────────────────────────────────────────────────────┤
+  │ Input:  0                                                  │
+  ├────────────────────────────────────────────────────────────┤
+  │ Meaning: 0 = none (pure diffusion)                         │
+  │          1 = analytic reaction                             │
+  │          2 = numerical reaction                            │
+  └────────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ Question: "Define initial globs (count, x-position, value)"│
+  ├────────────────────────────────────────────────────────────┤
+  │ Input:  50, 0.5, 1.0                                       │
+  ├────────────────────────────────────────────────────────────┤
+  │ Meaning: start with 50 random walkers centered at x=0.5    │
+  │           with strength/value 1.0                          │
+  └────────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ Question: "Done adding globs?" (sentinel to stop reading)  │
+  ├────────────────────────────────────────────────────────────┤
+  │ Input:  -1, 0.0, 0                                         │
+  ├────────────────────────────────────────────────────────────┤
+  │ Meaning: terminates input — no more glob definitions follow│
+  └────────────────────────────────────────────────────────────┘
+
+├────────────────────────────────────────────────────────────────────────────┤
+│ SUMMARY                                                             	     │
+│   1, 0.0, 1      ← Left boundary info                                      │
+│   1, 1.0, 1      ← Right boundary info                                     │
+│   0.01           ← Diffusivity α                                           │
+│   0.001          ← Time step Δt                                            │
+│   0              ← Reaction off                                            │
+│   50, 0.5, 1.0   ← 50 globs at x=0.5, strength 1.0                         │
+│   -1, 0.0, 0     ← End of input                                            │
+├────────────────────────────────────────────────────────────────────────────┤
+│ In terminal later:                                                         │
+│   Enter input file name:  input.txt                                        │
+│   Enter filename to OUTPUT results: sample_output.txt                      │
+│   Enter time level to compute:  0.1                                        │
+│ → The program now runs for t = 0 → 0.1 in steps of 0.001                   │
+│   printing “t = … (50 globs)” as it advances.                              │
+└────────────────────────────────────────────────────────────────────────────┘
